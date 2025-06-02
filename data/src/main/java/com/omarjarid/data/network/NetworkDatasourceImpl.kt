@@ -8,9 +8,7 @@ class NetworkDatasourceImpl @Inject constructor(
     private val apiInterface: ApiInterface
 ) : NetworkDatasource {
 
-    override suspend fun getReason(): ReasonModel {
-        val response = apiInterface.getReason()
-        val body = response.body() ?: ReasonModel("")
-        return if (response.isSuccessful) body else ReasonModel("")
-    }
+    override suspend fun getReason(): ReasonModel = apiInterface.getReason().takeIf {
+        it.isSuccessful
+    }?.body() ?: ReasonModel("")
 }
