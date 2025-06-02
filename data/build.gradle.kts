@@ -6,6 +6,16 @@ plugins {
     alias(libs.plugins.google.devtools.ksp)
 }
 
+// Import the config file
+apply(from = "config.gradle.kts")
+
+// Add an extension function for DefaultConfig
+fun com.android.build.api.dsl.DefaultConfig.addBuildConfigFields(fields: Any?) {
+    fields ?: return
+    val buildConfigFields = fields as Map<String, String>
+    buildConfigFields.forEach { (key, value) -> buildConfigField("String", key, "\"$value\"") }
+}
+
 android {
     namespace = "com.omarjarid.data"
     compileSdk = 35
@@ -15,6 +25,9 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+
+        val buildConfigFields = project.ext["buildConfigFields"]
+        addBuildConfigFields(buildConfigFields)
     }
 
     buildTypes {

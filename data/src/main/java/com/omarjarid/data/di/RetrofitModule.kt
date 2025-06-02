@@ -1,5 +1,6 @@
 package com.omarjarid.data.di
 
+import com.omarjarid.data.BuildConfig
 import com.omarjarid.data.network.ApiInterface
 import dagger.Module
 import dagger.Provides
@@ -18,17 +19,18 @@ class RetrofitModule {
     @Singleton
     fun provideOkHttp(): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-        okHttpClientBuilder.addInterceptor(interceptor)
-
+        if (BuildConfig.DEBUG) {
+            val interceptor = HttpLoggingInterceptor()
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            okHttpClientBuilder.addInterceptor(interceptor)
+        }
         return okHttpClientBuilder.build()
     }
 
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): ApiInterface = Retrofit.Builder()
-        .baseUrl("https://naas.isalman.dev/")
+        .baseUrl(BuildConfig.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .client(okHttpClient)
         .build()
