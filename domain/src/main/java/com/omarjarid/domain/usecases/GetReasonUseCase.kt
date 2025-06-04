@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class GetReasonUseCase @Inject constructor(private val repository: ReasonRepository) {
-    suspend operator fun invoke(): Flow<Result<ReasonModel>> = flow {
+    operator fun invoke(): Flow<Result<ReasonModel>> = flow {
         try {
             val result = repository.getReason()
             emit(Result.Success(result))

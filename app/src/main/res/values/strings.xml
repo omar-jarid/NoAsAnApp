@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NoAsAnApp</string>
+    <string name="button_text">Get a new rejection reason</string>
 </resources>
