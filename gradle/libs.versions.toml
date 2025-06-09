@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.3"
+agp = "8.10.1"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -22,7 +22,8 @@ timberVersion = "5.0.1"
 
 googleDevtools = "2.0.21-1.0.25"
 hiltVersion = "2.56.1"
-hiltComposeVersion = '1.2.0'
+hiltComposeVersion = "1.2.0"
+splashScreenVersion = "1.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -50,6 +51,7 @@ gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersi
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltComposeVersion" }
+core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreenVersion" }
 
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "injectVersion" }
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptorVersion"}

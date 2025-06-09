@@ -2,4 +2,12 @@
 <resources>
 
     <style name="Theme.NoAsAnApp" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.NoAsAnApp.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.NoAsAnApp</item>
+    </style>
+
+
 </resources>
