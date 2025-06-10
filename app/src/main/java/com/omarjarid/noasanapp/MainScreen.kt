@@ -1,11 +1,15 @@
 package com.omarjarid.noasanapp
 
 import android.content.res.Resources.Theme
+import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,7 +25,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(
+    modifier: Modifier = Modifier
+) {
     val reasonViewModel = hiltViewModel<ReasonViewModel>()
     val reasonModel by reasonViewModel.reason.collectAsState()
 
@@ -29,11 +35,24 @@ fun MainScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
         modifier = modifier.fillMaxSize()
+            .background(color = MaterialTheme.colorScheme.background)
     ) {
-        Text(reasonModel.reason, textAlign = TextAlign.Center, color = MaterialTheme.colorScheme.primary)
-        Spacer(modifier = Modifier.height(8.dp))
-        Button(onClick = { reasonViewModel.getReason() }) {
-            Text(stringResource(R.string.button_text))
+        Text(
+            reasonModel.reason,
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.bodyLarge,
+            color = MaterialTheme.colorScheme.onBackground,
+            modifier = modifier.padding(24.dp)
+        )
+        Spacer(modifier = modifier.height(16.dp))
+        Button(
+            onClick = { reasonViewModel.getReason() },
+            modifier = modifier.animateContentSize()
+        ) {
+            Text(
+                stringResource(R.string.button_text),
+                style = MaterialTheme.typography.labelLarge,
+            )
         }
     }
 }
