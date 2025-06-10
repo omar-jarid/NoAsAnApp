@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="Theme.NoAsAnApp" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:background">@color/black</item>
+        <item name="android:windowBackground">@color/black</item>
+    </style>
+
+
     <style name="Theme.NoAsAnApp.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_dark</item>
         <item name="windowSplashScreenBackground">@color/black</item>
