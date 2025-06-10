@@ -11,8 +11,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -24,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier
@@ -31,32 +37,39 @@ fun MainScreen(
     val reasonViewModel = hiltViewModel<ReasonViewModel>()
     val reasonModel by reasonViewModel.reason.collectAsState()
 
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = modifier.fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background)
-    ) {
-        Text(
-            reasonModel.reason,
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge,
-            color = MaterialTheme.colorScheme.onBackground,
-            modifier = modifier.padding(24.dp)
-        )
-        Spacer(modifier = modifier.height(16.dp))
-        Button(
-            onClick = { reasonViewModel.getReason() },
-            modifier = modifier.animateContentSize()
+    Scaffold(
+        topBar = {
+            TopAppBar(title = { Text(stringResource(R.string.app_name)) })
+        }
+    ) { innerPadding ->
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = modifier
+                .fillMaxSize()
+                .background(color = MaterialTheme.colorScheme.background)
         ) {
             Text(
-                stringResource(R.string.button_text),
-                style = MaterialTheme.typography.labelLarge,
+                reasonModel.reason,
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onBackground,
+                modifier = modifier.padding(innerPadding)
             )
+            Spacer(modifier = modifier.height(16.dp))
+            Button(
+                onClick = { reasonViewModel.getReason() },
+                colors = ButtonDefaults.buttonColors().copy(
+                    containerColor = MaterialTheme.colorScheme.onBackground,
+                    contentColor = MaterialTheme.colorScheme.background
+                ),
+                modifier = modifier.animateContentSize()
+            ) {
+                Text(
+                    stringResource(R.string.button_text),
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
         }
     }
 }
-
-@Preview
-@Composable
-fun MainScreenPreview() { MainScreen() }
