@@ -1,4 +1,4 @@
-package com.omarjarid.noasanapp
+package com.omarjarid.noasanapp.presentation
 
 import androidx.lifecycle.viewModelScope
 import com.omarjarid.domain.models.ReasonModel
