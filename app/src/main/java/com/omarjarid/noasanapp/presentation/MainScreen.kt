@@ -44,6 +44,7 @@ fun MainScreen(
             verticalArrangement = Arrangement.Center,
             modifier = modifier
                 .fillMaxSize()
+                .padding(innerPadding)
                 .background(color = MaterialTheme.colorScheme.background)
         ) {
             Text(
@@ -51,7 +52,7 @@ fun MainScreen(
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onBackground,
-                modifier = modifier.padding(innerPadding)
+                modifier = modifier.padding(Dimens.size16)
             )
             Spacer(modifier = modifier.height(Dimens.size16))
             Button(
