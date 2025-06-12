@@ -31,3 +31,8 @@ The project leverages several modern Android libraries to ensure maintainability
 - [SplashScreen](https://developer.android.com/develop/ui/views/launch/splash-screen): Provides a smooth and customizable launch screen experience when the app starts.
 
 ---
+
+## Install on your device
+You can use the provided APK.
+
+Minimum version required: API 26 (Android 8.0 - Oreo)
