@@ -1,3 +1,6 @@
+import java.util.Properties
+import java.io.FileInputStream
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -8,6 +11,11 @@ plugins {
 }
 
 android {
+    val signingProperties = Properties().apply {
+        val signingFile = rootProject.file("signing.properties")
+        if (signingFile.exists()) FileInputStream(signingFile).use { load(it) }
+    }
+
     namespace = "com.omarjarid.noasanapp"
     compileSdk = 35
 
@@ -16,14 +24,28 @@ android {
         minSdk = 26
         targetSdk = 35
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0-demo"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        signingConfigs {
+            create("portfolio") {
+                storeFile = file(signingProperties["PORTFOLIO_KEYSTORE"] as String)
+                storePassword = signingProperties["PORTFOLIO_STORE_PASSWORD"] as String
+                keyAlias = signingProperties["PORTFOLIO_ALIAS"] as String
+                keyPassword = signingProperties["PORTFOLIO_KEY_PASSWORD"] as String
+            }
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("portfolio")
             isMinifyEnabled = false
+            isShrinkResources = false
+            isDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -70,5 +92,4 @@ dependencies {
     implementation(project(":data"))
 
     ksp(libs.hilt.compiler)
-
 }
