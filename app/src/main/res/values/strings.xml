@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">NoAsAnApp</string>
     <string name="button_text">Get a new rejection reason</string>
+    <string name="something_went_wrong">Oops! Something went wrong… this time for real!</string>
 </resources>
