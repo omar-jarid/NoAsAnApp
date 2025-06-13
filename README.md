@@ -1,6 +1,6 @@
 # NoAsAnApp
 
-**NoAsAnApp** is a simple Android application that interacts with the **No-as-a-service API** to generate random reasons for rejecting or refusing anything.
+**NoAsAnApp** is a simple Android application that interacts with the [No-as-a-service API](https://github.com/hotheadhacker/no-as-a-service) to generate random reasons for rejecting or refusing anything.
 
 ---
 
@@ -22,12 +22,11 @@ Each time the user interacts with the app, a new request is sent to the API, and
 
 ## Libraries Used
 
-The project leverages several modern Android libraries to ensure maintainability, scalability, and ease of development:
+The project leverages these Android libraries:
 
 - [Hilt](https://developer.android.com/training/dependency-injection/hilt-android): Handles dependency injection across the application, simplifying component management and improving code modularity.
 - [Timber](https://github.com/JakeWharton/timber): A lightweight logging library providing an extensible API for logging debug information.
 - [Retrofit](https://square.github.io/retrofit/): A type-safe HTTP client that simplifies network calls by using annotations to define API endpoints.
-- [OkHttp](https://square.github.io/okhttp/): An efficient HTTP client that powers Retrofit's underlying HTTP requests.
 - [SplashScreen](https://developer.android.com/develop/ui/views/launch/splash-screen): Provides a smooth and customizable launch screen experience when the app starts.
 
 ---
