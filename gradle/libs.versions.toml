@@ -13,7 +13,10 @@ material = "1.12.0"
 jetbrainsKotlinJvm = "2.0.21"
 
 coroutinesVersion = "1.8.1"
-gsonVersion = "2.11.0"
+
+kotlinxSerializationVersion = "1.7.3"
+kotlinxSerializationConverterVersion = "0.8.0"
+
 injectVersion = "1"
 loggingInterceptorVersion = "4.9.3"
 retrofitVersion = "3.0.0"
@@ -22,8 +25,11 @@ timberVersion = "5.0.1"
 
 googleDevtools = "2.0.21-1.0.25"
 hiltVersion = "2.56.1"
+
 hiltComposeVersion = "1.2.0"
 splashScreenVersion = "1.0.1"
+
+serialization = "1.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -44,28 +50,28 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion"}
+core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreenVersion" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesVersion" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutinesVersion" }
-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion"}
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltComposeVersion" }
-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreenVersion" }
-
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "injectVersion" }
+
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationVersion" }
+retrofit2-kotlinx-serialization-converter = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "kotlinxSerializationConverterVersion" }
+
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptorVersion"}
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion"}
-
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "googleDevtools" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
 
-google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "googleDevtools" }
-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
-
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }

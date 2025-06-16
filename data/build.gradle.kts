@@ -1,9 +1,10 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.kotlin.android)
-
     alias(libs.plugins.dagger.hilt)
     alias(libs.plugins.google.devtools.ksp)
+    alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.kotlin.serialization)
 }
 
 // Import the config file
@@ -56,8 +57,9 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
-    implementation(libs.converter.gson)
-    implementation(libs.gson)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+
     implementation(libs.hilt.android)
     implementation(libs.logging.interceptor)
     implementation(libs.javax.inject)

@@ -1,11 +1,13 @@
 package com.omarjarid.data.models
 
-import com.google.gson.annotations.SerializedName
 import com.omarjarid.domain.models.ReasonModel
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ReasonDataModel(
-    @SerializedName("reason")
-    val reason: String? = ""
+    @SerialName("reason")
+    val reason: String
 )
 
-fun ReasonDataModel.toDomain(): ReasonModel = ReasonModel(reason.orEmpty())
+fun ReasonDataModel.toDomain(): ReasonModel = ReasonModel(reason)
