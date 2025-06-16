@@ -16,7 +16,7 @@ coroutinesVersion = "1.8.1"
 gsonVersion = "2.11.0"
 injectVersion = "1"
 loggingInterceptorVersion = "4.9.3"
-retrofitVersion = "2.11.0"
+retrofitVersion = "3.0.0"
 
 timberVersion = "5.0.1"
 
