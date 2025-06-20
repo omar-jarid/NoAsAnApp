@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface ApiInterface {
 
     @GET("no")
-    suspend fun getReason(): Response<ReasonDataModel>
+    suspend fun getReason(): ReasonDataModel
 }

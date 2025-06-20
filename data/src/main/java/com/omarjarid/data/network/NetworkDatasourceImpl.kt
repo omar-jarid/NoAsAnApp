@@ -9,7 +9,5 @@ class NetworkDatasourceImpl @Inject constructor(
     private val apiInterface: ApiInterface
 ) : NetworkDatasource {
 
-    override suspend fun getReason(): ReasonModel = apiInterface.getReason().takeIf {
-        it.isSuccessful
-    }?.body()?.toDomain() ?: ReasonModel("")
+    override suspend fun getReason(): ReasonModel = apiInterface.getReason().toDomain()
 }
