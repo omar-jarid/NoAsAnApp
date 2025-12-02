@@ -19,7 +19,7 @@ fun com.android.build.api.dsl.DefaultConfig.addBuildConfigFields(fields: Any?) {
 
 android {
     namespace = "com.omarjarid.data"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 26
