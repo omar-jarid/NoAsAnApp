@@ -17,6 +17,7 @@ Each time the user interacts with the app, a new request is sent to the API, and
 - Every button press triggers a new API request
 - The app retrieves and displays a random reason provided by the API
 - Clean and simple user interface focused on functionality
+- Copy the generated response into Clipboard
 
 ---
 
