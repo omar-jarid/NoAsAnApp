@@ -23,8 +23,8 @@ android {
         applicationId = "com.omarjarid.noasanapp"
         minSdk = 26
         targetSdk = 36
-        versionCode = 2
-        versionName = "1.0.1-demo"
+        versionCode = 3
+        versionName = "1.1-demo"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
