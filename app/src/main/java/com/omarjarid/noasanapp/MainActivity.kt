@@ -11,6 +11,7 @@ import com.omarjarid.noasanapp.ui.theme.NoAsAnAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.woheller69.freeDroidWarn.FreeDroidWarn
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -27,6 +28,9 @@ class MainActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+        FreeDroidWarn.showWarningOnUpgrade(this, BuildConfig.VERSION_CODE)
+
         setContent {
             NoAsAnAppTheme { MainScreen() }
         }

@@ -11,10 +11,10 @@ plugins {
 }
 
 android {
-    val signingProperties = Properties().apply {
+    /*val signingProperties = Properties().apply {
         val signingFile = rootProject.file("signing.properties")
         if (signingFile.exists()) FileInputStream(signingFile).use { load(it) }
-    }
+    }*/
 
     namespace = "com.omarjarid.noasanapp"
     compileSdk = 36
@@ -29,7 +29,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
+    /*signingConfigs {
         signingConfigs {
             create("portfolio") {
                 storeFile = file(signingProperties["PORTFOLIO_KEYSTORE"] as String)
@@ -38,11 +38,11 @@ android {
                 keyPassword = signingProperties["PORTFOLIO_KEY_PASSWORD"] as String
             }
         }
-    }
+    }*/
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("portfolio")
+            //signingConfig = signingConfigs.getByName("portfolio")
             isMinifyEnabled = false
             isShrinkResources = false
             isDebuggable = false
@@ -88,6 +88,8 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     implementation(libs.timber)
     implementation(libs.core.splashscreen)
+
+    implementation(libs.freedroidwarn)
 
     implementation(project(":data"))
 

@@ -31,6 +31,8 @@ splashScreenVersion = "1.2.0"
 
 serialization = "2.2.21"
 
+freeDroidWarnVersion = "V1.+"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -64,6 +66,8 @@ retrofit2-kotlinx-serialization-converter = { group = "com.jakewharton.retrofit"
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "loggingInterceptorVersion"}
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion"}
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timberVersion" }
+
+freedroidwarn = { group = "com.github.woheller69", name = "FreeDroidWarn", version.ref ="freeDroidWarnVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
